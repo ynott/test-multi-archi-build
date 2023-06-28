@@ -45,5 +45,5 @@ jobs:
         push: true
         # 7. nameing
         tags: |
-          ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.CI_REPOSITORY_NAME }}:${{ steps.date.outputs.today }}
-          ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.CI_REPOSITORY_NAME }}:latest
+          ghcr.io/${{ CI_REPOSITORY_OWNER }}/${{ CI_REPOSITORY_NAME }}:${{ steps.date.outputs.today }}
+          ghcr.io/${{ CI_REPOSITORY_OWNER }}/${{ CI_REPOSITORY_NAME }}:latest
