@@ -1,7 +1,7 @@
 name: docker build
 
 # 1. Controls when the workflow will run
-on: workflow_dispatch
+on:
   push:
     branches:
       - 'main'
