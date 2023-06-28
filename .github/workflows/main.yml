@@ -47,5 +47,5 @@ jobs:
         push: true
         # 7. nameing
         tags: |
-          ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ steps.date.outputs.today }}
-          ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest
+          ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}/${{ env.IMAGE_NAME }}:${{ steps.date.outputs.today }}
+          ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}/${{ env.IMAGE_NAME }}:latest
