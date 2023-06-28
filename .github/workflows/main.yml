@@ -57,4 +57,5 @@ jobs:
         # 7. nameing
         tags: |
           ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}/${{ env.IMAGE_NAME }}:latest
-          ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}/${{ env.IMAGE_NAME }}:${{ steps.date.outputs.today }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
