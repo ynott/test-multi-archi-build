@@ -27,7 +27,7 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: ghcr.io
-        username: ${{ github.actor }}
+        username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
     # 5. setup buildx
@@ -47,5 +47,4 @@ jobs:
         push: true
         # 7. nameing
         tags: |
-          ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}/${{ env.IMAGE_NAME }}:${{ steps.date.outputs.today }}
           ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}/${{ env.IMAGE_NAME }}:latest
