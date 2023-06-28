@@ -23,10 +23,10 @@ jobs:
       IMAGE_NAME: sample-app
     steps:
     # 2. setup variables
-    - uses: FranzDiebold/github-env-vars-action@v2
     - name: Get current date
+    - uses: FranzDiebold/github-env-vars-action@v2
       id: date
-      run: echo "::set-output name=today::$(date +'%Y%m%d')"
+      run: echo "{today}={$(date +'%Y%m%d')}" >> $GITHUB_OUTPUT
 
     # 3. Checkout code
     - name: Checkout
@@ -58,3 +58,6 @@ jobs:
         # 7. nameing
         tags: |
           ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}/${{ env.IMAGE_NAME }}:latest
+          ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}/${{ env.IMAGE_NAME }}:${{ steps.date.outputs.today }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
