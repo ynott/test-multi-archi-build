@@ -38,6 +38,7 @@ jobs:
     - name: Build and push
       id: docker_build
       uses: docker/build-push-action@v2
+      run: echo "REPOSITORY_NAME=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_ENV
       with:
         context: .
         file: ./Dockerfile
@@ -45,5 +46,5 @@ jobs:
         push: true
         # 7. nameing
         tags: |
-          ghcr.io/${{ github.repository_owner  }}/${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}:${{ steps.date.outputs.today }}
-          ghcr.io/${{ github.repository_owner  }}/${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}:latest
+          ghcr.io/${{ github.repository_owner }}/${{ env.REPOSITORY_NAME }}:${{ steps.date.outputs.today }}
+          ghcr.io/${{ github.repository_owner }}/${{ env.REPOSITORY_NAME }}:latest
