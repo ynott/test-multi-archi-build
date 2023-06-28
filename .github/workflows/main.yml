@@ -9,6 +9,8 @@ on:
 jobs:
   main:
     runs-on: ubuntu-latest
+    env:
+      IMAGE_NAME: sample-app
     steps:
     # 2. setup variables
     - uses: FranzDiebold/github-env-vars-action@v2
@@ -37,7 +39,6 @@ jobs:
     # 6. Build and Push
     - name: Build and push
       id: docker_build
-      run: echo "REPOSITORY_NAME=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_ENV
       uses: docker/build-push-action@v2
       with:
         context: .
@@ -46,5 +47,5 @@ jobs:
         push: true
         # 7. nameing
         tags: |
-          ghcr.io/${{ github.repository_owner }}/${{ env.REPOSITORY_NAME }}:${{ steps.date.outputs.today }}
-          ghcr.io/${{ github.repository_owner }}/${{ env.REPOSITORY_NAME }}:latest
+          ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ steps.date.outputs.today }}
+          ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest
