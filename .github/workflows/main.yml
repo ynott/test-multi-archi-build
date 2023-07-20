@@ -25,6 +25,7 @@ jobs:
     - name: Define variables
       uses: FranzDiebold/github-env-vars-action@v2
     - name: echo Repository tags
+      id: CI_REF_NAME
       run: echo "Tag: $CI_REF_NAME"
     - name: Get current date
       id: date
