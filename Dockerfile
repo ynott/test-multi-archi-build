@@ -1,5 +1,6 @@
 # Use an official base image as a parent image
-FROM alpine:3.12
+# FROM alpine:3.12
+FROM nvcr.io/nvidia/l4t-ml:r35.2.1-py3
 
 # Determine the image architecture using the `uname` command and save the information in a file
 RUN IMAGE_ARCH=$(uname -m) && \
