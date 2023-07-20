@@ -49,6 +49,8 @@ jobs:
       uses: docker/setup-buildx-action@v2
 
     # 6. Build and Push
+    - name: env
+      run: env
     - name: Build and push
       id: docker_build
       uses: docker/build-push-action@v4
