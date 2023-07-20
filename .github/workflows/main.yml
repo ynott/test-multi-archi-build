@@ -50,7 +50,7 @@ jobs:
 
     # 6. Build and Push
     - name: env
-      run: env
+      run: env | sort
     - name: Build and push
       id: docker_build
       uses: docker/build-push-action@v4
