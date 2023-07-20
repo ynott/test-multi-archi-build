@@ -25,7 +25,7 @@ jobs:
     - name: Define variables
       uses: FranzDiebold/github-env-vars-action@v2
     - name: echo Repository tags
-      run: echo "Tag: $CI_REF_NAME"
+      run: echo "$CI_REF_NAME"
     - name: Get current date
       id: date
       run: echo "today=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
