@@ -88,5 +88,5 @@ jobs:
           docker image ls -a
       - name: test bash
         run: |
-          docker run ghcr.io/ynott/test-multi-archi-build/test-multi-archi-build --entrypoint "sleep 100" -d --name test-apline 
+          docker run ghcr.io/ynott/test-multi-archi-build/test-multi-archi-build --entrypoint "/bin/ash sleep 100" -d --name test-apline 
           docker exec test-apline ls -l /
