@@ -57,7 +57,7 @@ jobs:
       with:
         context: .
         file: ./Dockerfile
-        platforms: linux/arm64,linux/amd64
+        platforms: linux/amd64
         # 7. nameing
         tags: |
           ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}/${{ github.event.repository.name }}:latest
